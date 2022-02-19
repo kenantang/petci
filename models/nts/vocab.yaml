@@ -1,0 +1,29 @@
+# vocab.yaml
+
+# Create a shared Vocabulary
+share_vocab: True
+save_data: ../../data/simplify/all.vocab
+
+# WARNING: overwrite existing files
+overwrite: True
+
+# Use pretrained embedding
+both_embeddings: ../../data/embedding/glove.840B.300d.txt
+embeddings_type: "GloVe"
+word_vec_size: 300
+
+# Corpus opts:
+data:
+    train:
+        path_src: ../../data/simplify/train-src.txt
+        path_tgt: ../../data/simplify/train-tgt.txt
+    valid:
+        path_src: ../../data/simplify/dev-src.txt
+        path_tgt: ../../data/simplify/dev-tgt.txt
+    test:
+        path_src: ../../data/simplify/test-src.txt
+        path_tgt: ../../data/simplify/test-tgt.txt
+
+# Vocabulary files that were just created
+src_vocab: ../../data/simplify/all.vocab
+tgt_vocab: ../../data/simplify/all.vocab

@@ -1,0 +1,58 @@
+# nts.yaml
+
+# Create a shared Vocabulary
+share_vocab: True
+save_data: ../../data/simplify/all.vocab
+
+# WARNING: overwrite existing files
+overwrite: True
+
+# Use pretrained embedding
+both_embeddings: ../../data/embedding/glove.840B.300d.txt
+embeddings_type: "GloVe"
+word_vec_size: 300
+
+# Corpus opts:
+data:
+    train:
+        path_src: ../../data/simplify/train-src.txt
+        path_tgt: ../../data/simplify/train-tgt.txt
+    valid:
+        path_src: ../../data/simplify/dev-src.txt
+        path_tgt: ../../data/simplify/dev-tgt.txt
+
+# Vocabulary files that were just created
+src_vocab: ../../data/simplify/all.vocab
+tgt_vocab: ../../data/simplify/all.vocab
+
+# Train on a single GPU
+world_size: 1
+gpu_ranks: [0]
+
+# Set seed!
+seed: 41
+
+# Where to save the checkpoints
+save_model: checkpoints/checkpoint
+
+# Calculation based on training size
+# size = 19421
+# batch = 64
+# step per epoch = size / batch = 303 \approx 300
+# total epochs = 15
+# total steps = total epochs * step per epoch
+# start decay epoch = 8
+
+# If using the SGD optimizer:
+# start_decay_steps: 2400
+
+batch_size: 64
+save_checkpoint_steps: 300
+train_steps: 9000
+valid_steps: 300
+
+optim: adam
+learning_rate: 0.001
+
+early_stopping: 5
+early_stopping_criteria: ppl
