@@ -41,7 +41,12 @@ In `./data/json/filtered.json`, the `machine` translations that are the same as 
 Run `pip install -r ./models/requirements.txt` to install required packages. Download and put `glove.840B.300d.txt` in `./data/embedding`. Download [CoreNLP](https://stanfordnlp.github.io/CoreNLP/index.html).
 
 ### Create Datasets
-Before training, run `java -Xmx4g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -parse.binaryTrees` to start the CoreNLP server, and run `./data/dataset.py` in the enclosing folder to create the necessary datasets.
+Before training, run `java -Xmx4g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -parse.binaryTrees` to start the CoreNLP server, and run the following commands in the `./data` folder to create the necessary datasets.
+
+```shell
+mkdir label simplify tree
+python dataset.py
+```
 
 ### LSTM
 
@@ -87,4 +92,4 @@ onmt_translate -model $BEST -src $SRC -output $OUTPUT -verbose -beam_size 5
 ```
 
 ### Figures
-In the enclosing folder, run `./figs/plot.py`.
+In the `figs` folder, run `python plot.py --model lstm`, where the model name can be replaced by `tree_lstm` or `bert`.
