@@ -4,6 +4,10 @@ PETCI is a **P**arallel **E**nglish **T**ranslation dataset of **C**hinese **I**
 
 We provide several baseline models to facilitate future research on this dataset.
 
+## 2026 Update
+
+An updated version of this dataset can be found at [IdiomTranslate30](https://huggingface.co/datasets/kenantang/IdiomTranslate30). The updated version includes **9,066** idioms in 3 source languages and **2,719,800** translations in 10 target languages.
+
 ## Data
 
 The Chinese idioms and their translations are in the `./data/json/raw.json` file. Here is one example:
